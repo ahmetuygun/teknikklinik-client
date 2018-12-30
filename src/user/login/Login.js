@@ -39,12 +39,12 @@ class LoginForm extends Component {
                 }).catch(error => {
                     if(error.status === 401) {
                         notification.error({
-                            message: 'Polling App',
+                            message: 'Teknik Klinik',
                             description: 'Kullanıcı adınız yada şifreniz hatalı. Lütfen tekrar deneyin !'
                         });                    
                     } else {
                         notification.error({
-                            message: 'Polling App',
+                            message: 'Teknik Klinik',
                             description: error.message || 'Özür dileriz, birşeyler yanlış gitti!'
                         });                                            
                     }

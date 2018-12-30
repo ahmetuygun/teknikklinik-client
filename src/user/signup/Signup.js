@@ -61,13 +61,13 @@ class Signup extends Component {
         signup(signupRequest)
         .then(response => {
             notification.success({
-                message: 'Polling App',
+                message: 'Teknik Klinik',
                 description: "Kayıt başarılı. Devam etmek için login olun!",
             });          
             this.props.history.push("/login");
         }).catch(error => {
             notification.error({
-                message: 'Polling App',
+                message: 'Teknik Klinik',
                 description: error.message || 'Birşeyler yanlış gitti.!'
             });
         });
