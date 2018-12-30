@@ -68,7 +68,7 @@ class NewPoll extends Component {
                 this.props.handleLogout('/login', 'error', 'You have been logged out. Please login create poll.');    
             } else {
                 notification.error({
-                    message: 'Teknik Klinik',
+                    message: 'teknikklinik.com',
                     description: error.message || 'Sorry! Something went wrong. Please try again!'
                 });              
             }
