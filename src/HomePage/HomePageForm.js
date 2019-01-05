@@ -5,42 +5,17 @@ import { Button, Icon } from 'semantic-ui-react'
 import PropTypes from 'prop-types';
 import Autosuggest from 'react-autosuggest';
 import './HomePageCss.css';
+import {languages} from './PhoneList';
 
-const languages = [
-    {
-         id: '1',
-         label: 'Samsung Note 8'
-    },
-    {
-        id: '2',
-        label: 'Samsung Note 9'
-    },
-    {
-        id: '3',
-        label: 'Apple Iphone 6s'
-    },
-    {
-        id: '4',
-        label: 'HTC One'
-    },
-    {
-        id: '5',
-        label: 'General Mobile Discovery 1'
-    },
-    {
-        id: '6',
-        label: 'General Mobile Discovery 1'
-    }
 
-];
 
 const getSuggestions = value => {
     const inputValue = value.trim().toLowerCase();
     const inputLength = inputValue.length;
-
     return inputLength === 0 ? [] : languages.filter(lang =>
-        lang.label.toLowerCase().slice(0, inputLength) === inputValue
-    );
+            lang.label.toLowerCase().includes(inputValue)
+        //lang.label.toLowerCase().slice(0, inputLength).includes(inputValue)
+    ).slice(0,10);
 };
 
 // When suggestion is clicked, Autosuggest needs to populate the input
@@ -67,7 +42,9 @@ class HomePageForm extends Component {
         // and they are initially empty because the Autosuggest is closed.
         this.state = {
             value: '',
-            suggestions: []
+            suggestions: [],
+            selectedPhoneLabel : '',
+            selectedPhoneId : ''
         };
     }
 
@@ -83,6 +60,18 @@ class HomePageForm extends Component {
             suggestions: getSuggestions(value)
         });
     };
+
+     onSuggestionSelected = (event, { suggestion, suggestionValue, suggestionIndex, sectionIndex, method }) => {
+
+         this.setState({
+             selectedPhoneLabel: suggestionValue,
+             selectedPhoneId : languages.filter(lang =>
+                     lang.label === suggestionValue
+             )[0].id
+         });
+
+     }
+
 
     // Autosuggest will call this function every time you need to clear suggestions.
     onSuggestionsClearRequested = () => {
@@ -108,6 +97,7 @@ class HomePageForm extends Component {
                     suggestions={suggestions}
                     onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
                     onSuggestionsClearRequested={this.onSuggestionsClearRequested}
+                    onSuggestionSelected ={this.onSuggestionSelected}
                     getSuggestionValue={getSuggestionValue}
                     renderSuggestion={renderSuggestion}
                     inputProps={inputProps}
