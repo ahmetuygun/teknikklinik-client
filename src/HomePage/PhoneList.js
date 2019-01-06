@@ -1,5 +1,5 @@
 
-export   const languages = [
+export   const phones = [
     { id: '1', label: 'Alcatel 1'},
     { id: '2', label: 'Alcatel 1x'},
     { id: '3', label: 'Alcatel 1x (GO Edition)'},

@@ -9,6 +9,9 @@ import {
 
 import { getCurrentUser } from '../util/APIUtils';
 import { ACCESS_TOKEN } from '../constants';
+import NewRequestForm from '../NewRequest/NewRequestForm';
+import 'semantic-ui-css/semantic.min.css';
+
 
 import PollList from '../poll/PollList';
 import NewPoll from '../poll/NewPoll';
@@ -108,6 +111,7 @@ class App extends Component {
                 </Route>
                 <Route path="/login" 
                   render={(props) => <Login onLogin={this.handleLogin} {...props} />}></Route>
+                  <Route exact path='/newRequestForm/:id' component={NewRequestForm}></Route>
                 <Route path="/signup" component={Signup}></Route>
                 <Route path="/users/:username" 
                   render={(props) => <Profile isAuthenticated={this.state.isAuthenticated} currentUser={this.state.currentUser} {...props}  />}>

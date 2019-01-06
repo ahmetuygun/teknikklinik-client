@@ -1,18 +1,18 @@
 import React, {Component} from 'react';
 import { Button, Icon } from 'semantic-ui-react'
 
-
 import PropTypes from 'prop-types';
 import Autosuggest from 'react-autosuggest';
 import './HomePageCss.css';
-import {languages} from './PhoneList';
+import {phones} from './PhoneList';
+import {Link} from 'react-router-dom';
 
 
 
 const getSuggestions = value => {
     const inputValue = value.trim().toLowerCase();
     const inputLength = inputValue.length;
-    return inputLength === 0 ? [] : languages.filter(lang =>
+    return inputLength === 0 ? [] : phones.filter(lang =>
             lang.label.toLowerCase().includes(inputValue)
         //lang.label.toLowerCase().slice(0, inputLength).includes(inputValue)
     ).slice(0,10);
@@ -65,8 +65,8 @@ class HomePageForm extends Component {
 
          this.setState({
              selectedPhoneLabel: suggestionValue,
-             selectedPhoneId : languages.filter(lang =>
-                     lang.label === suggestionValue
+             selectedPhoneId : phones.filter(lang =>
+                 lang.label === suggestionValue
              )[0].id
          });
 
@@ -102,7 +102,7 @@ class HomePageForm extends Component {
                     renderSuggestion={renderSuggestion}
                     inputProps={inputProps}
                 />
-                <Button primary>Fiyatları Gör</Button>
+                <Button primary as={Link} to={"/newRequestForm/" + this.state.selectedPhoneId} >Fiyatları Gör</Button>
 
 
             </div>

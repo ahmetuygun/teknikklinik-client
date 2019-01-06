@@ -28,11 +28,7 @@ class AppHeader extends Component {
                  Anasayfa
               </Link>
             </Menu.Item>,
-              <Menu.Item key="/newRequestForm">
-                  <Link to="/newRequestForm">
-                      Arıza Talep Formu
-                  </Link>
-              </Menu.Item>,
+
               <Menu.Item key="/howWorks">
                   <Link to="/howWorks">
                      Nasıl Çalışır?
@@ -57,11 +53,7 @@ class AppHeader extends Component {
                         Anasayfa
                     </Link>
                 </Menu.Item>,
-                <Menu.Item key="/newRequestForm">
-                    <Link to="/newRequestForm">
-                        Arıza Talep Formu
-                    </Link>
-                </Menu.Item>,
+
                 <Menu.Item key="/howWorks">
                     <Link to="/howWorks">
                         Nasıl Çalışır?
