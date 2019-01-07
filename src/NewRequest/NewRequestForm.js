@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Steps,Input } from 'antd';
+import {Steps,Input, Switch } from 'antd';
 
 import {Button, Divider, Form, Grid, Header, List, Segment, Step, Checkbox} from 'semantic-ui-react'
 import {phones} from "../HomePage/PhoneList";
@@ -97,7 +97,7 @@ class NewRequestForm extends Component {
                             <Form.Field>
 
                              <h3>Telefonum adresimden alınsın(İstanbul için)</h3>
-                            <Checkbox />
+                                <Switch   />
                             </Form.Field>
 
 
