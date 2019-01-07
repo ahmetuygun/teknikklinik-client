@@ -1,16 +1,19 @@
 import React, {Component} from 'react';
-import {connect} from 'react-redux';
+import {Steps,Input } from 'antd';
 
-import {Divider, Icon, Step, Table, Form, Label,Segment} from 'semantic-ui-react'
+import {Button, Divider, Form, Grid, Header, List, Segment, Step, Checkbox} from 'semantic-ui-react'
 import {phones} from "../HomePage/PhoneList";
+import {connect} from 'react-redux';
+import './NewRequestForm.css';
 
 
 class NewRequestForm extends Component {
 
+
     constructor() {
         super();
         this.state = {
-            selectedPhone : '',
+            selectedPhone: '',
         };
     }
 
@@ -20,7 +23,7 @@ class NewRequestForm extends Component {
 
         this.setState(
             {
-                selectedPhone : phones.filter(lang =>
+                selectedPhone: phones.filter(lang =>
                     lang.id === match.params.id
                 )[0]
             }
@@ -29,76 +32,98 @@ class NewRequestForm extends Component {
     }
 
     render() {
+
+        const Step = Steps.Step;
+
         return (
             <div>
+                <div class="stepscss" >
+                    <Steps current={0}>
+                        <Step title="Arıza Tanımı" description="Cihazının arızasını tanımlayın"/>
+                        <Step title="Adres" description="Size ulaşabileceğimiz iletişim bilgilerinizi tanımlayın"/>
+                        <Step title="Ödeme" description="Ödeme detaylarını girin"/>
+                    </Steps>,
+                </div>
+                <Grid container columns={2} relaxed stackable>
+                    <Grid.Column width={11}>
+                        <Form>
+                            <Form.Field>
+                                <Header as='h3' attached='top' block color='blue'>
+                                    Marka/Model
+                                </Header>
+                                <Segment attached>
+                                    {this.state.selectedPhone.label}
+                                </Segment>
+                            </Form.Field>
+                            <Divider/>
+                            <Form.Field>
 
-                <Step.Group>
-                    <Step>
-                        <Icon name='cart arrow down' />
-                        <Step.Content>
-                            <Step.Title>Arıza Tanımı</Step.Title>
-                        </Step.Content>
-                    </Step>
+                                <Header as='h3' attached='top' block color='blue'>
+                                    Arıza Tanımı
+                                </Header>
+                                <Segment attached style={{overflow: 'auto', maxHeight: 200}}>
+                                    <List divided verticalAlign='middle'>
+                                        <List.Item>
+                                            <List.Content floated='right'>
+                                                <Button basic color='blue'>Ekle</Button>
+                                            </List.Content>
+                                            <List.Content>Ekran kırık/çatlak</List.Content>
+                                        </List.Item>
+                                        <List.Item>
+                                            <List.Content floated='right'>
+                                                <Button basic color='blue'>Ekle</Button>
+                                            </List.Content>
+                                            <List.Content>Arka kamera çalışmıyor</List.Content>
+                                        </List.Item>
+                                        <List.Item>
+                                            <List.Content floated='right'>
+                                                <Button basic color='blue'>Ekle</Button>
+                                            </List.Content>
+                                            <List.Content>Karşıya ses gitmiyor</List.Content>
+                                        </List.Item>
+                                    </List>
+                                </Segment>
+                            </Form.Field>
+                            <Divider/>
 
-                    <Step disabled>
-                        <Icon name='address card outline' />
-                        <Step.Content>
-                            <Step.Title>Adres</Step.Title>
-                        </Step.Content>
-                    </Step>
+                            <Form.Field>
 
-                    <Step disabled>
-                        <Icon name='payment' />
-                        <Step.Content>
-                            <Step.Title>Fatura</Step.Title>
-                        </Step.Content>
-                    </Step>
-                </Step.Group>
+                                <h3>Arızayı tarif eder misiniz?</h3>
 
+                                <Input  rows={4} />
+                            </Form.Field>
+                            <Divider/>
 
-                <Form>
+                            <Form.Field>
+
+                             <h3>Telefonum adresimden alınsın(İstanbul için)</h3>
+                            <Checkbox />
+                            </Form.Field>
 
 
+                        </Form>
+                    </Grid.Column>
+                    <Grid.Column width={5}>
 
-                    <Form.Field>
-                        <h2> Marka/Model:</h2>
+                        <h2>Hesap Özeti</h2>
 
-                        <Label color='blue' size='huge'>
-                            {this.state.selectedPhone.label}
-                        </Label>
-                    </Form.Field>
-                    <Divider/>
+                        <List divided verticalAlign='middle'>
+                            <List.Item>
+                                <List.Content floated='right'>
+                                    <label> 500.00 TL</label>
 
-                    <Form.Field>
-                        <h2> Arıza tanımı:</h2>
-
-                        <Table celled>
-                            <Table.Body>
-                                <Table.Row>
-                                    <Table.Cell>Ekranım kırık yada çatlak</Table.Cell>
-                                    <Table.Cell selectable positive>
-                                        <a href='#'>
-                                            <Icon circular name='add'/>
-                                        </a>
-                                    </Table.Cell>
-                                </Table.Row>
-                                <Table.Row>
-                                    <Table.Cell>Kamera çalışmıyor</Table.Cell>
-                                    <Table.Cell selectable positive>
-                                        <a href='#'>+</a>
-                                    </Table.Cell>
-                                </Table.Row>
-                                <Table.Row>
-                                    <Table.Cell>Ses karşı tarafa gitmiyor</Table.Cell>
-                                    <Table.Cell selectable positive>
-                                        <a href='#'>+</a>
-                                    </Table.Cell>
-                                </Table.Row>
-
-                            </Table.Body>
-                        </Table>
-                    </Form.Field>
-                </Form>
+                                </List.Content>
+                                <List.Content>Ekran Değişimi</List.Content>
+                            </List.Item>
+                            <List.Item>
+                                <List.Content floated='right'>
+                                    <label> 500.00 TL</label>
+                                </List.Content>
+                                <List.Content>Toplam</List.Content>
+                            </List.Item>
+                        </List>
+                    </Grid.Column>
+                </Grid>
 
                 <Divider/>
 
@@ -111,9 +136,7 @@ class NewRequestForm extends Component {
 NewRequestForm.propTypes = {};
 
 
-const mapDispacthToProps = {
-
-}
+const mapDispacthToProps = {}
 
 const mapStateToProps = ({selectPhoneId}) => {
     return {
