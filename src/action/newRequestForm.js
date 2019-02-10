@@ -1,22 +1,20 @@
+import {ACCESS_TOKEN, API_BASE_URL} from '../constants';
 import axios from 'axios';
+import { request } from '../util/APIUtils';
 
-export const FETCH_MOVIES_FULFILLED = 'FETCH_MOVIES_FULFILLED';
-export const FETCH_MOVIES_REJECTED = 'FETCH_MOVIES_REJECTED';
-export const  FETCH_MOVIES_PENDING = 'FETCH_MOVIES_PENDING';
-
-export const DELETE_MOVIE_FULFILLED = 'DELETE_MOVIE_FULFILLED';
-export const DELETE_MOVIE_REJECTED = 'DELETE_MOVIE_REJECTED';
-export const DELETE_MOVIE_PENDING = 'DELETE_MOVIE_PENDING';
+export const FETCH_OFFERS_FULFILLED = 'FETCH_OFFERS_FULFILLED';
+export const FETCH_OFFERS_REJECTED = 'FETCH_OFFERS_REJECTED';
+export const  FETCH_OFFERS_PENDING = 'FETCH_OFFERS_PENDING';
 
 
-export function fetchMovies() {
+export function fetchOffers(id) {
 
-    return dispatch =>{
+    return dispatch => {
 
         dispatch ({
-            type : "FETCH_MOVIES",
-            payload : axios.get( '/movies')
-                .then(result => result.data.movies)
+            type : "FETCH_OFFERS",
+            payload : axios.get(API_BASE_URL + "/offer/" + id)
+                .then(result => result.data)
 
         })
     }

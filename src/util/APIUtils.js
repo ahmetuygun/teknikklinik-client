@@ -1,6 +1,6 @@
 import { API_BASE_URL, POLL_LIST_SIZE, ACCESS_TOKEN } from '../constants';
 
-const request = (options) => {
+export const request = (options) => {
     const headers = new Headers({
         'Content-Type': 'application/json',
     })
@@ -22,6 +22,8 @@ const request = (options) => {
         })
     );
 };
+
+
 
 export function getAllPolls(page, size) {
     page = page || 0;
@@ -75,6 +77,13 @@ export function checkUsernameAvailability(username) {
 export function checkEmailAvailability(email) {
     return request({
         url: API_BASE_URL + "/user/checkEmailAvailability?email=" + email,
+        method: 'GET'
+    });
+}
+
+export function fetchOffers(device,defect) {
+    return request({
+        url: API_BASE_URL + "/offer/" + device+ "/" + defect,
         method: 'GET'
     });
 }

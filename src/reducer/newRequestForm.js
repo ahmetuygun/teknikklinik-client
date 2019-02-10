@@ -1,51 +1,32 @@
-import {FETCH_MOVIES_FULFILLED,
-    FETCH_MOVIES_REJECTED,
-    FETCH_MOVIES_PENDING,
-    DELETE_MOVIE_PENDING,
-    DELETE_MOVIE_FULFILLED,
-    DELETE_MOVIE_REJECTED
+import {FETCH_OFFERS_FULFILLED,
+    FETCH_OFFERS_REJECTED,
+    FETCH_OFFERS_PENDING,
 } from '../action/newRequestForm';
 
 const initialState = {
     fetching: false,
     fetched: false,
-    selectedPhoneLabel: '',
-    selectedPhoneId: '',
+    offers : [],
     error: {}
 };
 export default (state = initialState, action) => {
     switch (action.type) {
-        case FETCH_MOVIES_FULFILLED:
+        case FETCH_OFFERS_FULFILLED:
             return {
                 ...state,
-                movies : action.payload,
+                offers : action.payload,
                 fetching : false
             };
-        case FETCH_MOVIES_REJECTED:
+        case FETCH_OFFERS_REJECTED:
             return {
                 ...state,
                 error : action.payload,
                 fetching : false
             };
-        case FETCH_MOVIES_PENDING:
+        case FETCH_OFFERS_PENDING:
             return {
                 ...state,
                 fetching : true
-            };
-        // DELETE_MOVIE
-        case DELETE_MOVIE_PENDING:
-            return {
-                ...state,
-            };
-        case DELETE_MOVIE_FULFILLED:
-            return {
-                ...state,
-                movies: state.movies.filter(item => item._id !== action.payload.id),
-            };
-        case DELETE_MOVIE_REJECTED:
-            return {
-                ...state,
-                error: action.payload,
             };
         default :
             return state;
