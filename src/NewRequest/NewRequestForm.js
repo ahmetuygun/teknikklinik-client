@@ -164,7 +164,12 @@ class NewRequestForm extends Component {
                                         />
                                     </List.Content>
                                     <List.Content floated='right'>
-                                        <label> {offer.price} TL</label>
+
+                                        if(offer.price == 0){
+                                        <label> {offer.price } TL</label>
+                                    }else{
+                                        <label> ? TL</label>
+                                    }
                                     </List.Content>
                                     <List.Content>{offer.defectName}</List.Content>
                                 </List.Item>

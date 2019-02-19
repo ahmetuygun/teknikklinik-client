@@ -1,6 +1,5 @@
 export const API_BASE_URL = 'http://teknikklinik2.us-east-1.elasticbeanstalk.com/api';
 
-
 //export const API_BASE_URL = '/api';
 export const ACCESS_TOKEN = 'accessToken';
 

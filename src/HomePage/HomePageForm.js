@@ -30,7 +30,7 @@ class HomePageForm extends Component {
         this.setState({
             dataSource: !inputValue ? [] : phones.filter(lang =>
                 lang.label.toLowerCase().includes(inputValue)
-            ).slice(0, 8)
+            ).slice(0, 5)
         });
     }
 

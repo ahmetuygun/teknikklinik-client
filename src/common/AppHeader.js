@@ -22,12 +22,6 @@ class AppHeader extends Component {
         let menuItems;
         if (this.props.currentUser) {
             menuItems = [
-                <Menu.Item key="/">
-                    <Link to="/">
-                        Anasayfa
-                    </Link>
-                </Menu.Item>,
-
                 <Menu.Item key="/howWorks">
                     <Link to="/howWorks">
                         Nasıl Çalışır?
@@ -48,7 +42,7 @@ class AppHeader extends Component {
                 </Menu.Item>,
 
                 <Menu.Item key="/login">
-                    <Link to="/login">Hesabım</Link>
+                    <Link to="/login">Arıza Takip</Link>
                 </Menu.Item>,
 
             ];
