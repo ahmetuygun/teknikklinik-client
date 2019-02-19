@@ -39,18 +39,26 @@ class NewRequestForm extends Component {
                     })
 
                 });
+            }else{
+
             }
 
-
-
-
-
-
     }
+
+    getTotal(){
+
+        let total = 0;
+        this.state.offerList.map(
+            a => total = total + a.price
+        )
+        return total;
+    }
+
     removeOffer(id){
 
         this.setState({
-            offerList: this.state.offerList.filter( elem => elem.id !== id)
+            offerList: this.state.offerList.filter( elem => elem.id !== id),
+
         })
     }
 
@@ -145,8 +153,6 @@ class NewRequestForm extends Component {
                         <List divided verticalAlign='middle'>
 
 
-
-
                             {this.state.offerList.map( offer =>
                                 <List.Item>
                                     <List.Content floated='right'>
@@ -170,7 +176,7 @@ class NewRequestForm extends Component {
                                 <div className="totalSection">
 
                                 <List.Content floated='right'>
-                                    <label class="boldtext"> {this.state.total} TL</label>
+                                    <label class="boldtext"> {this.getTotal()} TL</label>
                                 </List.Content>
                                 <List.Content>
                                     <label className="boldtext"> Toplam</label>
@@ -180,7 +186,7 @@ class NewRequestForm extends Component {
                             </List.Item>
                         </List>
                         <Message
-                            icon='credit card outline' color='orange'
+                            icon='credit card outline' color='green'
                             content='Arıza tespit edilmeden ve size danışılmadan hiç bir işlem yapılmaz ve sizden ücret talep edilmez'
                         />
 
