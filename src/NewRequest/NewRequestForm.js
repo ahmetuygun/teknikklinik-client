@@ -28,8 +28,6 @@ class NewRequestForm extends Component {
     getOffer(device,defect){
         let offers;
 
-
-
         if(this.state.offerList.filter(item => item.defectId == defect ).length == 0)
             offers =   fetchOffers( device,defect )
             if(offers) {
@@ -44,11 +42,12 @@ class NewRequestForm extends Component {
                     })
 
                 });
+                setTimeout(hide, 0);
+
             }else{
 
             }
 
-        setTimeout(hide, 0);
 
 
     }
