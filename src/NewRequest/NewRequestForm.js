@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Input, Steps, Switch} from 'antd';
+import {Input, Steps, Switch,message} from 'antd';
 
 import {Button, Divider, Form, Grid, Header, List, Segment, Step,Icon,Message} from 'semantic-ui-react'
 import {phones} from "../HomePage/PhoneList";
@@ -28,9 +28,13 @@ class NewRequestForm extends Component {
     getOffer(device,defect){
         let offers;
 
+
+
         if(this.state.offerList.filter(item => item.defectId == defect ).length == 0)
             offers =   fetchOffers( device,defect )
             if(offers) {
+                const hide = message.loading('Fiyat bilgisi getiriliyor', 0);
+
                 offers.then(response => {
                     console.log(response);
                     if(response.ofers[0] && response.ofers[0].id)
@@ -43,6 +47,9 @@ class NewRequestForm extends Component {
             }else{
 
             }
+
+        setTimeout(hide, 0);
+
 
     }
 
