@@ -32,6 +32,7 @@ class NewRequestForm extends Component {
             offers =   fetchOffers( device,defect )
             if(offers) {
                 offers.then(response => {
+                    console.log(response);
                     if(response.ofers[0] && response.ofers[0].id)
                     this.setState({
                         offerList: [...this.state.offerList, response.ofers[0]],
@@ -164,12 +165,9 @@ class NewRequestForm extends Component {
                                         />
                                     </List.Content>
                                     <List.Content floated='right'>
+                                        { offer.price == 0 ?  <label> - TL</label> :<label> {offer.price } TL</label>
 
-                                        if(offer.price == 0){
-                                        <label> {offer.price } TL</label>
-                                    }else{
-                                        <label> ? TL</label>
-                                    }
+                                        }
                                     </List.Content>
                                     <List.Content>{offer.defectName}</List.Content>
                                 </List.Item>
@@ -192,7 +190,7 @@ class NewRequestForm extends Component {
                         </List>
                         <Message
                             icon='credit card outline' color='green'
-                            content='Arıza tespit edilmeden ve size danışılmadan hiç bir işlem yapılmaz ve sizden ücret talep edilmez'
+                            content='Kesin arıza tespit edilmeden ve size bildirilmeden hiç bir işlem yapılmaz ve sizden herhangi bir ücret talep edilmez'
                         />
 
 
