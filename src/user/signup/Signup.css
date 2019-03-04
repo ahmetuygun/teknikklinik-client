@@ -5,8 +5,14 @@
 }
 
 .signup-form-button {
-    width: 100%;
+    width: 80%;
     margin-top: 15px;
+    align-content: center;
+}
+.signup-form-button-div {
+    text-align: center;
+    display: block;
+
 }
 
 .signup-form-button[disabled], .signup-form-button[disabled]:hover, .signup-form-button[disabled]:focus {
@@ -18,4 +24,7 @@
 
 .signup-form input {
     margin-bottom: 3px;
+}
+.displayBlock {
+    display: flex;
 }
