@@ -21,34 +21,70 @@ const FormItem = Form.Item;
 class Signup extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            name: {
-                value: ''
-            },
-            username: {
-                value: ''
-            },
-            email: {
-                value: ''
-            },
-            password: {
-                value: ''
-            },
-            city: {
-                value: cities[0].il,
-            },
-            district: {
-                value: cities[0].ilceleri[0],
-            },
-            selectedCity: cities[0],
-            phone: {
-                value: 5
-            },
-            addressText: {
-                value: ''
-            }
+        if(this.props.signupRequest.email){
+            this.state = {
+                name: {
+                    value: this.props.signupRequest.name,
+                    validateStatus : 'success'
+                },
+                username: {
+                    value: this.props.signupRequest.username
+                },
+                email: {
+                    value: this.props.signupRequest.email,
+                    validateStatus : 'success'
+                },
+                password: {
+                    value: this.props.signupRequest.password,
+                    validateStatus :  'success'
+                },
+                city: {
+                    value: this.props.signupRequest.city
+                },
+                district: {
+                    value: this.props.signupRequest.district
+                },
+                selectedCity: cities[0],
+                phone: {
+                    value: this.props.signupRequest.phone
+                },
+                addressText: {
+                    value: this.props.signupRequest.address,
+                    validateStatus : 'success'
+                }
 
+            }
+        }else{
+            this.state = {
+                name: {
+                    value: ''
+                },
+                username: {
+                    value: ''
+                },
+                email: {
+                    value: ''
+                },
+                password: {
+                    value: ''
+                },
+                city: {
+                    value: cities[0].il,
+                },
+                district: {
+                    value: cities[0].ilceleri[0],
+                },
+                selectedCity: cities[0],
+                phone: {
+                    value: 5
+                },
+                addressText: {
+                    value: ''
+                }
+
+            }
         }
+
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.validateUsernameAvailability = this.validateUsernameAvailability.bind(this);
@@ -72,6 +108,8 @@ class Signup extends Component {
         });
     }
 
+
+
     handleSubmit(event) {
         event.preventDefault();
 
@@ -85,28 +123,16 @@ class Signup extends Component {
             city: this.state.city.value,
             district: this.state.district.value
         };
-        signup(signupRequest)
-            .then(response => {
-                notification.success({
-                    message: 'teknikklinik.com',
-                    description: "Kayıt başarılı. Devam etmek için login olun!",
-                });
 
-                this.props.getAllState(signupRequest, response)
-                this.props.nextButtonVisible(true);
+        this.props.getAllState(signupRequest)
+        this.props.nextButtonVisible(true);
 
-            }).catch(error => {
-            notification.error({
-                message: 'teknikklinik.com',
-                description: error.message || 'Birşeyler yanlış gitti.!'
-            });
-        });
     }
 
     isFormInvalid() {
         return !(this.state.name.validateStatus === 'success' &&
             this.state.email.validateStatus === 'success' &&
-            this.state.password.validateStatus === 'success'
+            this.state.password.validateStatus === 'success' && this.state.addressText.validateStatus === 'success'
         );
     }
 
@@ -194,7 +220,7 @@ class Signup extends Component {
                             help={this.state.addressText.errorMsg}>
                             <TextArea
                                 size="large"
-                                rows={6}
+                                rows={5}
                                 name="addressText"
                                 autoComplete="off"
                                 value={this.state.addressText.value}

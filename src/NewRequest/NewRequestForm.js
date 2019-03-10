@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
-import {Button as ButtonAnt , Input, Steps, Switch,message, Icon as IconAnt} from 'antd';
+import {signup,saveDefect } from '../util/APIUtils';
 
-import {Button, Divider, Form, Grid, Header, List, Segment, Step,Icon,Message} from 'semantic-ui-react'
+import {Button as ButtonAnt, Input, Steps, Switch, message, Icon as IconAnt, Radio, Form,notification} from 'antd';
+
+import {Button, Divider, Grid, Header, List, Segment, Step,Icon,Message} from 'semantic-ui-react'
 import {phones} from "../HomePage/PhoneList";
 import {defects} from "../HomePage/DefectList";
 
@@ -9,6 +11,9 @@ import {connect} from 'react-redux';
 import './NewRequestForm.css';
 import {fetchOffers} from '../util/APIUtils';
 import Signup from "../user/signup/Signup";
+import Summary from "./Summary";
+import {Link} from "react-router-dom";
+const FormItem = Form.Item;
 
 
 class NewRequestForm extends Component {
@@ -21,20 +26,18 @@ class NewRequestForm extends Component {
             offerList: [],
             total: 0,
             userId : 0,
-            defectDescription : '',
+            defectDescription :{
+              value : ''
+            } ,
+            deliveryStyle:2,
 
-            name: '',
-            email: '',
-            username: '',
-            password:  '',
-            address: '',
-            phone : 0,
-            city : '',
-            district : '',
             current: 0,
             nextButton : true,
             previousButton : true,
-            complateButton : true
+            complateButton : true,
+            
+            signupRequest :{},
+            saveResult : {}
 
 
         };
@@ -43,7 +46,6 @@ class NewRequestForm extends Component {
 
 
     }
-
 
 
     getOffer(device,defect){
@@ -89,7 +91,6 @@ class NewRequestForm extends Component {
 
 
     componentDidMount() {
-
         const {match} = this.props;
         this.setState(
             {
@@ -99,26 +100,14 @@ class NewRequestForm extends Component {
                 selectedPhoneId : match.params.id
             }
         )
-
-
     }
 
 
-    getAllState(signupRequest,userid){
+    getAllState(signupRequest){
 
         this.setState({
             signupRequest :signupRequest,
-            userId : userid,
-            name: signupRequest.name,
-            email: signupRequest.email,
-            username: signupRequest.username,
-            password:  signupRequest.password,
-            address: signupRequest.address,
-            phone : signupRequest.phone,
-            city : signupRequest.city,
-            district : signupRequest.city
         })
-
     }
 
     next() {
@@ -144,13 +133,32 @@ class NewRequestForm extends Component {
 
     }
 
-    handleInputChange= (e) => {
-        this.setState(
-            {
-                [e.target.name] : e.target.value,
 
+    handleInputChange(event, validationFun) {
+        const target = event.target;
+        const inputName = target.name;
+        const inputValue = target.value;
+
+        this.setState({
+            [inputName]: {
+                value: inputValue,
+                ...validationFun(inputValue)
             }
-        );
+        });
+    }
+
+    validateDescription = (desc) => {
+        if (desc.length < 20) {
+            return {
+                validateStatus: 'error',
+                errorMsg: `Arıza tanımı en az 20 karakter içermelidir..`
+            }
+        } else {
+            return {
+                validateStatus: 'success',
+                errorMsg: null,
+            };
+        }
     }
 
     nextButtonVisible= (e) => {
@@ -164,11 +172,87 @@ class NewRequestForm extends Component {
         }
     }
 
+    isDefectFormValid(){
+
+        let defectValidation = this.state.defectDescription.validateStatus;
+
+        if(this.state.offerList.length===0 || defectValidation !== 'success')
+            return true
+    }
+
+
+    handleRadioButton = (e) => {
+        this.setState({
+            deliveryStyle: e.target.value,
+        });
+    }
+
+
+    approve= (e) => {
+
+        signup(this.state.signupRequest)
+            .then(response => {
+                this.setState(
+                    {
+                        userId : response
+                    }
+                );
+                this.saveDefect_i(response);
+
+
+            }).catch(error => {
+            notification.error({
+                message: 'teknikklinik.com',
+                description: error.message || 'Birşeyler yanlış gitti.!'
+            });
+        });
+
+    }
+
+    saveDefect_i(userId){
+
+        if(userId > 0){
+
+            const  saveDefectRequest = {
+                userId : this.state.userId,
+                offerList :  this.state.offerList,
+                total :  this.getTotal(),
+                defectDescription :  this.state.defectDescription.value,
+                deliveryStyle :  this.state.deliveryStyle
+            }
+
+            saveDefect(saveDefectRequest)
+                .then(
+                    response => {
+
+                        this.setState({
+                            saveResult : response
+                        })
+                        this.props.history.push("/approve", { trackingId  : response});
+
+                    }
+
+                )
+                .catch(error => {
+                    notification.error({
+                        message: 'teknikklinik.com',
+                        description: error.message || 'Birşeyler yanlış gitti.!'
+                    });
+
+                })}
+    }
 
     render() {
         const Step = Steps.Step;
         const { current } = this.state;
         const { TextArea } = Input;
+        const RadioButton = Radio.Button;
+        const RadioGroup = Radio.Group;
+        const radioStyle = {
+            display: 'block',
+            height: '30px',
+            lineHeight: '30px',
+        };
 
 
         const defectForm = (
@@ -176,7 +260,7 @@ class NewRequestForm extends Component {
                 <Grid.Column width={11}>
                     <Form>
 
-                        <Form.Field>
+                        <FormItem>
 
                             <Header as='h3' attached='top' block color='blue'>
                                 {this.state.selectedPhone.label}
@@ -184,7 +268,7 @@ class NewRequestForm extends Component {
                             <Segment attached style={{overflow: 'auto', maxHeight: 200}}>
                                 <List divided verticalAlign='middle'>
                                     {defects.map( defect =>
-                                        <List.Item>
+                                        <List.Item key={defect.id}>
                                             <List.Content floated='right'>
                                                 <Button basic color='blue'
                                                         onClick={() =>  this.getOffer(this.state.selectedPhoneId ,defect.id)}>
@@ -196,26 +280,36 @@ class NewRequestForm extends Component {
                                     )}
                                 </List>
                             </Segment>
-                        </Form.Field>
+                        </FormItem>
                         <Divider/>
 
-                        <Form.Field>
+                        <FormItem
+                            hasFeedback
+                            validateStatus={this.state.defectDescription.validateStatus}
+                            help={this.state.defectDescription.errorMsg}>
 
                             <h3>Arızayı tarif eder misiniz?</h3>
-
                             <TextArea
-                                rows={3} value={this.state.defectDescription}
-                                onChange={(event) => this.handleInputChange(event)}
+                                rows={3}
+                                value={this.state.defectDescription.value}
+                                onChange={(event) => this.handleInputChange(event, this.validateDescription)}
                                 name="defectDescription"
                             />
-                        </Form.Field>
+                        </FormItem>
                         <Divider/>
 
-                        <Form.Field>
+                        <FormItem>
 
-                            <h3>Telefonum adresimden alınsın(İstanbul için)</h3>
-                            <Switch   />
-                        </Form.Field>
+                            <div>
+                                <RadioGroup  defaultValue={2}
+                                             onChange={this.handleRadioButton}
+                                             value={this.state.deliveryStyle}>
+                                    <RadioButton style={radioStyle}  value={1}>Telefonum adresimden alınsın(İstanbul için)</RadioButton>
+                                    <RadioButton style={radioStyle}  value={2}>Kargoyla göndermek istiyorum</RadioButton>
+                                </RadioGroup>
+                            </div>
+
+                        </FormItem>
 
 
                     </Form>
@@ -227,9 +321,8 @@ class NewRequestForm extends Component {
 
                     <List divided verticalAlign='middle'>
 
-
                         {this.state.offerList.map( offer =>
-                            <List.Item>
+                            <List.Item key={offer.id}>
                                 <List.Content floated='right'>
                                     <Button
                                         icon='minus circle'
@@ -251,7 +344,7 @@ class NewRequestForm extends Component {
                             <div className="totalSection">
 
                                 <List.Content floated='right'>
-                                    <label class="boldtext"> {this.getTotal()} TL</label>
+                                    <label className="boldtext"> {this.getTotal()} TL</label>
                                 </List.Content>
                                 <List.Content>
                                     <label className="boldtext"> Toplam</label>
@@ -277,10 +370,17 @@ class NewRequestForm extends Component {
             content: <Signup
                 getAllState = {this.getAllState}
                 nextButtonVisible = {this.nextButtonVisible}
+                signupRequest = {this.state.signupRequest}
             />,
         }, {
-            title: 'Kargo',
-            content: <div>Last-content</div>
+            title: 'Onay',
+            content: <Summary userInfo = {this.state.signupRequest}
+                              offerList = {this.state.offerList}
+                              selectedPhone = {this.state.selectedPhone}
+                              defectDescription = {this.state.defectDescription.value}
+                              total ={this.getTotal()}
+                              deliveryType = {this.state.deliveryStyle}
+            />
         }];
         return (
 
@@ -296,20 +396,28 @@ class NewRequestForm extends Component {
                     {
 
                         (current < steps.length - 1 && this.state.nextButton)
-                        && <ButtonAnt type="primary" onClick={() => this.next()}>
+                        && <ButtonAnt className="signup-form-button_n"
+                                      type="primary"
+                                      onClick={() => this.next()} disabled={this.isDefectFormValid()}>
                             İleri <IconAnt type="right" /> </ButtonAnt>
                     }
-                    {
-                        ( current === steps.length - 1 && this.state.previousButton)
-                        && <ButtonAnt type="primary" onClick={() => message.success('Processing complete!')}>Bitti</ButtonAnt>
-                    }
+                    &nbsp;&nbsp;
                     {
                         (current > 0 && this.state.complateButton)
                         && (
-                            <ButtonAnt  type="primary" style={{ marginLeft: 8 }} onClick={() => this.prev()}>
+                            <ButtonAnt   className="signup-form-button_n"
+                                         type="primary" style={{ marginLeft: 8 }} onClick={() => this.prev()}>
                                 <IconAnt type="left" /> Geri
                             </ButtonAnt>
                         )
+                    }
+                    &nbsp;&nbsp;
+                    {
+
+                        ( current === steps.length - 1 && this.state.previousButton)
+                        && <ButtonAnt type="primary"
+                                      className="signup-form-button_n"
+                                      onClick={() => this.approve()}>Onayla</ButtonAnt>
                     }
                 </div>
             </div>

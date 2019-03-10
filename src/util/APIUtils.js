@@ -59,11 +59,22 @@ export function login(loginRequest) {
     });
 }
 
+
+
 export function signup(signupRequest) {
     return request({
         url: API_BASE_URL + "/auth/signup",
         method: 'POST',
         body: JSON.stringify(signupRequest)
+    });
+}
+
+
+export function saveDefect(defectDetails) {
+    return request({
+        url: API_BASE_URL + "/save",
+        method: 'POST',
+        body: JSON.stringify(defectDetails)
     });
 }
 

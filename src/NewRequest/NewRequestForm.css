@@ -13,3 +13,46 @@
 .ant-steps-horizontal.ant-steps-label-horizontal{
     display: flex;
 }
+.blueLabel {
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.2px;
+    word-spacing: -5px;
+    color: #1890ff;
+    font-weight: 700;
+    text-decoration: none;
+    font-style: normal;
+    font-variant: normal;
+    text-transform: none;
+}
+
+
+.alignCenter {
+
+    padding-top: 20px;
+
+}
+.signup-form-button_n {
+    width:25%;
+    margin-top: 15px;
+    align-content: center;
+}
+.signup-form-button_n[disabled], .signup-form-button_n[disabled]:hover, .signup-form-button_n[disabled]:focus {
+    opacity: 0.6;
+    color: #fff;
+    background-color: #1890ff;
+    border-color: #1890ff;
+    width: 15%;
+
+}
+.textFieldMetarial{
+
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+    margin-left: 0px !important;
+
+
+
+
+
+}
