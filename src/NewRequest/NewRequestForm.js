@@ -389,7 +389,7 @@ class NewRequestForm extends Component {
                 <Steps  current={current}>
                     {steps.map(item => <Step key={item.title} title={item.title} />)}
                 </Steps>
-                <div  className="stepscss" >
+                <div className="stepcontentOuter">
                 <div className="steps-content">{steps[current].content}</div>
                 </div>
                 <div className="steps-action">

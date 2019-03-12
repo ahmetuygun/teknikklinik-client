@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="350cbd97-a1dd-4119-bbef-98621741fd86" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NewRequest/Final.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/NewRequest/Final.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NewRequest/NewRequestForm.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/NewRequest/NewRequestForm.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/NewRequest/NewRequestForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/NewRequest/NewRequestForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/NewRequest/Summary.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/NewRequest/Summary.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -55,15 +50,15 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="css" value="361" />
-          <entry key="js" value="11241" />
+          <entry key="css" value="366" />
+          <entry key="js" value="11281" />
           <entry key="txt" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="CSS" value="361" />
-          <entry key="JavaScript" value="11241" />
+          <entry key="CSS" value="366" />
+          <entry key="JavaScript" value="11281" />
           <entry key="PLAIN_TEXT" value="14" />
         </counts>
       </usages-collector>
@@ -79,8 +74,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/NewRequest/NewRequestForm.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="234" column="17" lean-forward="true" selection-start-line="234" selection-start-column="17" selection-end-line="234" selection-end-column="17" />
+            <state relative-caret-position="200">
+              <caret line="391" column="48" selection-start-line="391" selection-start-column="32" selection-end-line="391" selection-end-column="48" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -126,20 +121,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/NewRequest/NewRequestForm.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
+            <state relative-caret-position="189">
+              <caret line="65" column="11" selection-start-line="65" selection-start-column="11" selection-end-line="65" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/NewRequest/Final.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="19" column="60" lean-forward="true" selection-start-line="19" selection-start-column="60" selection-end-line="19" selection-end-column="60" />
+            <state relative-caret-position="129">
+              <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="17" selection-end-column="47" />
               <folding>
                 <element signature="e#0#39#0" expanded="true" />
               </folding>
@@ -248,9 +243,9 @@
         <option value="$PROJECT_DIR$/src/app/App.js" />
         <option value="$PROJECT_DIR$/src/common/AppHeader.js" />
         <option value="$PROJECT_DIR$/src/NewRequest/Summary.js" />
-        <option value="$PROJECT_DIR$/src/NewRequest/NewRequestForm.css" />
-        <option value="$PROJECT_DIR$/src/NewRequest/NewRequestForm.js" />
         <option value="$PROJECT_DIR$/src/NewRequest/Final.js" />
+        <option value="$PROJECT_DIR$/src/NewRequest/NewRequestForm.js" />
+        <option value="$PROJECT_DIR$/src/NewRequest/NewRequestForm.css" />
       </list>
     </option>
   </component>
@@ -433,7 +428,7 @@
       <workItem from="1547391544959" duration="600000" />
       <workItem from="1548506208501" duration="17905000" />
       <workItem from="1549704248970" duration="18876000" />
-      <workItem from="1550593613396" duration="131969000" />
+      <workItem from="1550593613396" duration="133245000" />
     </task>
     <task id="LOCAL-00001" summary="some minor fix">
       <created>1549828900148</created>
@@ -446,7 +441,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="229035000" />
+    <option name="totallyTimeSpent" value="230311000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -818,13 +813,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NewRequest/NewRequestForm.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="57" lean-forward="true" selection-start-line="57" selection-end-line="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/NewRequest/Summary.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-3111">
@@ -845,23 +833,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NewRequest/NewRequestForm.js">
+    <entry file="file://$PROJECT_DIR$/src/NewRequest/Final.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="234" column="17" lean-forward="true" selection-start-line="234" selection-start-column="17" selection-end-line="234" selection-end-column="17" />
+        <state relative-caret-position="129">
+          <caret line="16" column="10" selection-start-line="16" selection-start-column="10" selection-end-line="17" selection-end-column="47" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/NewRequest/Final.js">
+    <entry file="file://$PROJECT_DIR$/src/NewRequest/NewRequestForm.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="19" column="60" lean-forward="true" selection-start-line="19" selection-start-column="60" selection-end-line="19" selection-end-column="60" />
+        <state relative-caret-position="200">
+          <caret line="391" column="48" selection-start-line="391" selection-start-column="32" selection-end-line="391" selection-end-column="48" />
           <folding>
             <element signature="e#0#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/NewRequest/NewRequestForm.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="65" column="11" selection-start-line="65" selection-start-column="11" selection-end-line="65" selection-end-column="11" />
         </state>
       </provider>
     </entry>

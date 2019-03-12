@@ -1,7 +1,5 @@
 .stepscss{
- padding-bottom: 50px;
-    padding-top: 50px;
-
+    padding: 5%;
 }
 .boldtext{
     font-weight: bold;
@@ -66,4 +64,8 @@
 
 .paddingtopleft{
     padding: 10% !important;
+}
+.stepcontentOuter{
+    padding-top: 5% !important;
+
 }
