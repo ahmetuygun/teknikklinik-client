@@ -51,8 +51,19 @@
     margin-bottom: 0px !important;
     margin-left: 0px !important;
 
+}
+
+.formpadding{
+    margin-top: 20px !important;
+
+}
 
 
+.margintopleft{
+    margin-top: 50px !important;
+    background: #f6f6f6
+}
 
-
+.paddingtopleft{
+    padding: 10% !important;
 }

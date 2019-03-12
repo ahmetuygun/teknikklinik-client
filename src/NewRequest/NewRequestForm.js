@@ -228,7 +228,7 @@ class NewRequestForm extends Component {
                         this.setState({
                             saveResult : response
                         })
-                        this.props.history.push("/approve", { trackingId  : response});
+                        this.props.history.push("/approve", { trackingId  : response, name : this.state.signupRequest.name });
 
                     }
 
