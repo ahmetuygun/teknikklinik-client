@@ -12,6 +12,7 @@ import {Provider} from 'react-redux';
 import {BrowserRouter} from 'react-router-dom';
 import logger from 'redux-logger'
 import reduxPromise from 'redux-promise-middleware';
+import HomePageForm from "./HomePage/HomePageForm";
 
 const store = createStore(
     rootReducer,
@@ -25,5 +26,9 @@ ReactDOM.render(
         </Provider>
     </BrowserRouter>,
     document.getElementById('root'));
+
+
+
+
 
 registerServiceWorker();

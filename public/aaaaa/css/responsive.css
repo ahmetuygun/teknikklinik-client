@@ -1,0 +1,310 @@
+/* Normal desktop :992px. */
+@media (min-width: 992px) and (max-width: 1169px) {
+.header-text{
+	margin-top:50px;
+}
+.blog-date span {
+  margin-right: 0px;
+}
+.menu.one-page {
+  padding-right: 20px;
+}
+#menu_bars.right {
+  position: absolute;
+  top: 41px;
+  transition:all .3s;  
+}
+.sticker.stick .container-fluid #menu_bars {
+  top: 27px;
+  transition:all .3s;
+}
+
+
+}
+
+ 
+/* Tablet desktop :768px. */
+@media (min-width: 768px) and (max-width: 991px) {
+    /* mobile-menu */
+ .main-menu li {
+  padding-left: 20px;
+}   
+.header-text h2 {
+  font-size: 25px;
+}    
+.header-text p {
+  color: #fff;
+  margin-bottom: 30px;
+  padding: 0 65px;
+} 
+.header-text{
+	margin-top:30px;
+}
+.section-title p {
+  padding: 0 100px;
+}
+.single-team-member {
+  margin-bottom: 30px;
+}
+.team-area-start, .fun-fact-area{
+	padding-bottom:70px;
+}
+.single-fun {
+  margin-bottom: 30px;
+}
+.client-text > p {
+  margin: 0 60px 17px;
+}
+.callto-action-text > h2 {
+  margin-top: 12px;
+  font-size: 23px;
+}
+.contact-form {
+  margin-top: 30px;
+}
+#menu_bars.right {
+  position: absolute;
+  top: 41px;
+  transition:all .3s;  
+}
+.menu.one-page {
+  padding-right: 20px;
+}
+.sticker.stick .container-fluid #menu_bars {
+  top: 27px;
+  transition:all .3s;
+}
+.col-lg-6.col-md-6.col-sm-6.hidden-xs {
+  display: none;
+}
+.progress_bar {
+  margin-bottom: 30px;
+}
+.callto-action > h2 {
+  margin-top: 7px;
+  font-size: 28px;
+}
+
+
+
+}
+
+ 
+/* small mobile :320px. */
+@media (max-width: 767px) {
+.container {width:300px}
+ .header-text p {
+  padding: 0;
+}
+ .header-text h2 {
+  font-size: 17px;
+}
+.header-text h3 {
+  color: #ffffff;
+  font-size: 21px;
+  font-weight: 500;
+  margin-bottom: 16px;
+  margin-top: 12px;
+  text-transform: uppercase;
+  line-height: 38px;
+}
+.default-btn.btn-active {
+  margin-bottom: 28px;
+}
+.logo h2 {
+  margin:  10px 0px;
+} 
+.navbar-toggle {
+  margin-top: 10px;
+} 
+.main-menu > nav > ul {
+	background-color: #fff;
+	margin: 15px 0;
+	padding: 15px 0;
+} 
+.main-menu > nav > ul > li {
+  display: block;
+  float: none;
+  margin: 0;
+  padding: 10px;
+  width: 100%;
+}
+ .main-menu > nav > ul > li a{
+  color: #333;
+    display: block;
+}
+ .main-menu > nav > ul > li a:hover{
+  color: #26B8F3;
+}   
+ .main-menu {
+  border-top: medium none;
+  float: left;
+  width: 100%;
+}   
+.main-menu.float-right li:first-child {
+  padding-left: 10px;
+}
+.main-menu {
+  padding: 0;
+}
+.logo.navbar-header {
+  float: none;
+}    
+.navbar-brand {
+  float: left;
+  font-size: 18px;
+  height: 38px;
+  line-height: 20px;
+  padding: 0;
+}
+#main-menu.stick {
+  padding: 15px 0;
+}    
+.navbar-collapse {
+  box-shadow: none;
+}    
+.ptb-100{
+	padding:50px 0;
+}     
+.pb-100{
+	padding-bottom:50px;
+} 
+.pt-100{
+	padding-top:50px;
+}
+.about-area.pt-100.pb-70 {
+  padding-bottom: 20px;
+}
+.video-inner p {
+  padding: 0;
+}    
+ .about-img {
+  margin-top: 30px;
+}
+.section-title {
+  margin-bottom: 0px;
+}
+.about-img {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+.section-title p {
+  padding: 0;
+}
+.section-title > h3 {
+  font-size: 30px;
+}
+.single-team-member {
+  margin-bottom: 30px;
+}
+.service-area.pt-100.pb-70.gray-bg {
+  padding-bottom: 20px;
+}
+.portfolio-menu button {
+  margin: 10px 15px;
+}
+.portfolio-area.pt-100.pb-70 {
+  padding-bottom: 10px;
+}
+.single-team {
+  margin-bottom: 30px;
+}
+.team-area.ptb-100 {
+  padding-bottom: 10px;
+}
+.client-text > h3 {
+  margin-top: 20px;
+}
+.panel-group {
+  margin-top: 30px;
+}
+.callto-action > h2 {
+  font-size: 24px;
+  text-align: center;
+}
+.blog-info > h4 {
+  font-size: 17px;
+}
+.blog-date span {
+  margin-right: 7px;
+}
+.portfolio-img > img {
+  width: 100%;
+}
+.team-img > img {
+  width: 100%;
+}
+.copyright-left.text-left {
+  text-align: center;
+  margin-bottom: 30px;
+}
+.contact-sochil-icon.copyright-icon {
+  text-align: center;
+}
+.callto-btn.text-right {
+  text-align: center;
+  margin-top: 30px;
+}
+.colto-wrap h2 {
+  font-size: 20px;
+  line-height: 35px;
+}
+.team-area-start, .fun-fact-area, .pricing-area, .blog-area{
+	padding-bottom:20px;
+}
+.single-fun {
+  margin-bottom: 30px;
+} 
+.client-text > p {
+  margin: 0;
+}
+.single-price, .single-blog {
+  margin-bottom: 30px;
+}
+.callto-action-text > h2 {
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 30px;
+} 
+.callto-action-btn.floatright {
+  text-align: center;
+  float: none;
+}
+.contact-form {
+  margin-top: 30px;
+}
+#main-menu {
+  padding: 20px 0;
+} 
+ .navbar-brand {
+  margin-top: 5px;
+}.navbar-toggle {
+  margin-top: 0px;
+}
+.media-left {
+  display: block;
+  margin-bottom: 30px;
+  text-align: center;
+  width: 100%;
+}
+.media-list .media-replay .media {
+  border: medium none;
+  margin-left: 0px;
+}
+.blog-search {
+  margin-top: 30px;
+}
+
+ 
+}
+ 
+/* Large Mobile :480px. */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+.container {width:450px}
+.team-img img {
+  width: 100%;
+} 
+ 
+ 
+}
+ 

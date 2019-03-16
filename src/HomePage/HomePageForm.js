@@ -1,16 +1,17 @@
 import React, {Component} from 'react';
-import {AutoComplete, Icon, Input} from 'antd';
+import {AutoComplete, Input} from 'antd';
 import './HomePageCss.css';
 import {phones} from './PhoneList';
-import { Button } from 'semantic-ui-react'
+import {Button} from 'semantic-ui-react'
 import {Link} from 'react-router-dom';
+import {Redirect} from 'react-router'
 
 const Option = AutoComplete.Option;
 
 class HomePageForm extends Component {
 
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.state = {
             value: '',
@@ -55,6 +56,10 @@ class HomePageForm extends Component {
             selectedPhoneId: value
         });
     };
+
+/*    componentDidMount() {
+        <Redirect to='/main.html'/>
+    }*/
 
     render() {
         return (

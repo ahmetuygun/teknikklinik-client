@@ -1,0 +1,31 @@
+
+#style-switcher h2 a {
+    background: #3065B5 none repeat scroll 0 0;
+}
+a:hover {
+  color: #3065B5;
+  text-decoration: none;
+}
+.main-menu ul li.active a, .main-menu ul li a:hover, .about-btn:hover, .single-service:hover .service-icon i, .single-service:hover .service-text h4, .single-team-member .team-icon ul li:hover a i, .portfolio-title > p, .client-text > h4, .blog-info h4 a:hover, a.call-btn:hover, .blog-info > a:hover, .cont-submit:hover, #scrollUp:hover i{
+	color:#3065B5;
+}
+
+.slide-btn.btn-active, .slide-btn:hover, .about-btn, .progress-bar, .progress-bar span, .member-info, .portfolio-menu ul li.filter.active, .portfolio-menu ul li:hover, .portfolio-icon a, .testimonial-area .owl-carousel .owl-dot.active, .single-price:hover .price-title > h4, .single-price:hover .price-btn button, .single-price.active .price-title > h4, .single-price.active .price-btn button, .default-bg, .contact-sochil-icon a:hover, .cont-submit, #scrollUp, .slider-active-4 .owl-nav div{
+    background: #3065B5 none repeat scroll 0 0;
+}
+
+
+.slide-btn, .about-btn:hover, .progress, .team-icon li:hover, .contact-sochil-icon a:hover, .cont-submit, #scrollUp:hover{
+  border: 1px solid #3065B5;
+}
+.test-box::after, .test-box.test-box-border::after {
+  border-bottom: 10px solid #3065B5;
+}
+.progress-bar span::before{
+  border-top: 5px solid #3065B5;
+}
+
+
+
+
+

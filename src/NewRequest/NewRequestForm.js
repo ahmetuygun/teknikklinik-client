@@ -30,7 +30,7 @@ class NewRequestForm extends Component {
               value : ''
             } ,
             deliveryStyle:2,
-
+            iconLoading :false,
             current: 0,
             nextButton : true,
             previousButton : true,
@@ -190,6 +190,9 @@ class NewRequestForm extends Component {
 
     approve= (e) => {
 
+        this.setState({
+            iconLoading :true
+        })
         signup(this.state.signupRequest)
             .then(response => {
                 this.setState(
@@ -198,7 +201,6 @@ class NewRequestForm extends Component {
                     }
                 );
                 this.saveDefect_i(response);
-
 
             }).catch(error => {
             notification.error({
@@ -227,6 +229,9 @@ class NewRequestForm extends Component {
 
                         this.setState({
                             saveResult : response
+                        })
+                        this.setState({
+                            iconLoading :false
                         })
                         this.props.history.push("/approve", { trackingId  : response, name : this.state.signupRequest.name });
 
@@ -406,6 +411,7 @@ class NewRequestForm extends Component {
                         (current > 0 && this.state.complateButton)
                         && (
                             <ButtonAnt   className="signup-form-button_n"
+                                         loading={this.state.iconLoading}
                                          type="primary" style={{ marginLeft: 8 }} onClick={() => this.prev()}>
                                 <IconAnt type="left" /> Geri
                             </ButtonAnt>

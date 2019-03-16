@@ -102,9 +102,10 @@ class App extends Component {
                 <Content className="app-content">
                     <div className="container">
                         <Switch>
-                            <Route exact path="/">
-                                <HomePageForm/>
-                            </Route>
+
+
+                            <Route exact path="/" render={() => {window.location.href="/main.html"}} />
+
                             <Route path="/login"
                                    render={(props) => <Login onLogin={this.handleLogin} {...props} />}></Route>
                             <Route exact path='/newRequestForm/:id' component={NewRequestForm}></Route>
