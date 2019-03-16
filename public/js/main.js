@@ -92,7 +92,7 @@ One Page Nav
 /*---------------------
 Background Video
     --------------------- */
-	$('.player').mb_YTPlayer();
+    //$('.player').mb_YTPlayer();
 			
 	
 /*--------------------------

@@ -87,7 +87,7 @@
         <!-- header-end -->
 		<!-- slider-area-start -->
 		<div class="slider-area" id="home">	
-			<a class="player" data-property="{videoURL:'https://www.youtube.com/watch?v=4-Ca9C8QCS8',containment:'#home', showControls:false, autoPlay:true, zoom:0, loop:true, mute:true, startAt:60, opacity:1, quality:'default'}"></a>	<div class="single-slider opacity-1 slider-area-4">
+			<a class="player" id="bgndVideo" data-property="{videoURL:'https://www.youtube.com/watch?v=4-Ca9C8QCS8',containment:'#home', showControls:false, autoPlay:true, zoom:0, loop:true, mute:true, startAt:60, opacity:1, quality:'default'}"></a>	<div class="single-slider opacity-1 slider-area-4">
 				<div class="table">
 					<div class="table-cell">
 						<div class="container">
@@ -962,6 +962,28 @@
 		<!-- main js -->
         <script src="js/main.js"></script>
 
+
+
+		<link href="css/YTPlayer.css" media="all" rel="stylesheet" type="text/css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+		<script src="jquery.mb.YTPlayer.js"></script>
+
+		<script>
+
+            var myPlayer;
+            jQuery(function () {
+                myPlayer = jQuery("#bgndVideo").YTPlayer({});
+                /*
+                        myPlayer.YTPApplyFilters({
+                            grayscale: 50,
+                            sepia: 80,
+                            opacity: 30
+                        });
+                */
+            });
+
+		</script>
+
 		<script src="jquery.auto-complete.js"></script>
 		<script type="text/javascript" src="phoneList.json"></script>
 		<script>
@@ -1024,5 +1046,7 @@
                 });
             });
 		</script>
+
+
 	</body>
 </html>
