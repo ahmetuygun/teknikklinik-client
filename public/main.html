@@ -86,8 +86,8 @@
 		</header>
         <!-- header-end -->
 		<!-- slider-area-start -->
-		<div class="slider-area" id="home">	
-			<a class="player" id="bgndVideo" data-property="{videoURL:'https://www.youtube.com/watch?v=4-Ca9C8QCS8',containment:'#home', showControls:false, autoPlay:true, zoom:0, loop:true, mute:true, startAt:60, opacity:1, quality:'default'}"></a>	<div class="single-slider opacity-1 slider-area-4">
+		<div class="slider-area" id="home">
+			<a class="player" id="bgndVideo" data-property="{videoURL:'https://www.youtube.com/watch?v=fSuoBQdknZ4',containment:'#home', showControls:false, autoPlay:true, zoom:0, loop:true, mute:true, startAt:200, opacity:1, useOnMobile:true, quality:'small' ,ratio:'4/3'}"></a>	<div class="single-slider opacity-1 slider-area-4">
 				<div class="table">
 					<div class="table-cell">
 						<div class="container">
@@ -970,8 +970,26 @@
 
 		<script>
 
+            function e () {
+                if (typeof window.orientation !== 'undefined') {
+
+                    console.log("im mobile")
+                    var msglist = document.getElementById("bgndVideo");
+                    console.dir(msglist);
+                    msglist.setAttribute("data-property", "{videoURL:'https://youtu.be/4mQnwgV3NA4',containment:'#home', showControls:false, autoPlay:true, zoom:0, loop:true, mute:true, startAt:200, opacity:1, useOnMobile:true, quality:'small' ,ratio:'4/3'}");
+
+                }else{
+                    console.log("im web")
+
+                    var msglist = document.getElementById("bgndVideo");
+                    msglist.setAttribute("data-property", "{videoURL:'https://www.youtube.com/watch?v=fSuoBQdknZ4',containment:'#home', showControls:false, autoPlay:true, zoom:0, loop:true, mute:true, startAt:200, opacity:1, useOnMobile:true, quality:'small' ,ratio:'4/3'}");
+                }
+			};
+
             var myPlayer;
+            e();
             jQuery(function () {
+
                 myPlayer = jQuery("#bgndVideo").YTPlayer({});
                 /*
                         myPlayer.YTPApplyFilters({
@@ -1012,6 +1030,22 @@
             }
 		</script>
 
+		<script type="text/javascript">
+            document.addEventListener("DOMContentLoaded", function(){
+
+                if (typeof window.orientation !== 'undefined') {
+                    console.log("im mobile")
+                    var msglist = document.getElementById("bgndVideo");
+                    console.dir(msglist);
+                    msglist.setAttribute("data-property", "{videoURL:'https://youtu.be/4mQnwgV3NA4',containment:'#home', showControls:false, autoPlay:true, zoom:0, loop:true, mute:true, startAt:200, opacity:1, useOnMobile:true, quality:'small' ,ratio:'4/3'}");
+                }else{
+                    console.log("im web")
+                    var msglist = document.getElementById("bgndVideo");
+                    msglist.setAttribute("data-property", "{videoURL:'https://www.youtube.com/watch?v=fSuoBQdknZ4',containment:'#home', showControls:false, autoPlay:true, zoom:0, loop:true, mute:true, startAt:200, opacity:1, useOnMobile:true, quality:'small' ,ratio:'4/3'}");
+                }
+            });
+
+		</script>
 		<script>
             $(function(){
                 var selectedPhoneId;
