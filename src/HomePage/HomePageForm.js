@@ -4,7 +4,6 @@ import './HomePageCss.css';
 import {phones} from './PhoneList';
 import {Button} from 'semantic-ui-react'
 import {Link} from 'react-router-dom';
-import {Redirect} from 'react-router'
 
 const Option = AutoComplete.Option;
 
