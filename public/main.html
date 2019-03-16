@@ -1008,8 +1008,11 @@
 
             function redirect () {
 
+                var currentLocation = window.location;
+                console.dir(currentLocation);
+
                 var phone_id = document.getElementById("phoneId").value;
-				var url = 'http://localhost:3000/newRequestForm/' +phone_id;
+				var url = currentLocation.origin+'/newRequestForm/' +phone_id;
 
                 var ua        = navigator.userAgent.toLowerCase(),
                     isIE      = ua.indexOf('msie') !== -1,
