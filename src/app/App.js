@@ -104,7 +104,9 @@ class App extends Component {
                         <Switch>
 
 
-                            <Route exact path="/" render={() => {window.location.href="/main.html"}} />
+                            <Route exact path="/">
+                                <HomePageForm/>
+                            </Route>
 
                             <Route path="/login"
                                    render={(props) => <Login onLogin={this.handleLogin} {...props} />}></Route>
