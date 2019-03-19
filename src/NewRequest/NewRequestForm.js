@@ -197,7 +197,8 @@ class NewRequestForm extends Component {
             .then(response => {
                 this.setState(
                     {
-                        userId : response
+                        userId : response,
+                        iconLoading :false
                     }
                 );
                 this.saveDefect_i(response);
@@ -239,6 +240,10 @@ class NewRequestForm extends Component {
 
                 )
                 .catch(error => {
+
+                    this.setState({
+                        iconLoading :false
+                    })
                     notification.error({
                         message: 'teknikklinik.com',
                         description: error.message || 'Birşeyler yanlış gitti.!'
@@ -408,10 +413,9 @@ class NewRequestForm extends Component {
                     }
                     &nbsp;&nbsp;
                     {
-                        (current > 0 && this.state.complateButton)
+                        (current > 0 && this.state.previousButton)
                         && (
                             <ButtonAnt   className="signup-form-button_n"
-                                         loading={this.state.iconLoading}
                                          type="primary" style={{ marginLeft: 8 }} onClick={() => this.prev()}>
                                 <IconAnt type="left" /> Geri
                             </ButtonAnt>
@@ -420,9 +424,10 @@ class NewRequestForm extends Component {
                     &nbsp;&nbsp;
                     {
 
-                        ( current === steps.length - 1 && this.state.previousButton)
+                        ( current === steps.length - 1 && this.state.complateButton)
                         && <ButtonAnt type="primary"
                                       className="signup-form-button_n"
+                                      loading={this.state.iconLoading}
                                       onClick={() => this.approve()}>Onayla</ButtonAnt>
                     }
                 </div>
