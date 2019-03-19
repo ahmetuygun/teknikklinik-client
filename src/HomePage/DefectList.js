@@ -4,8 +4,3 @@ export   const defects = [
     { id: '2', label: 'Batarya Değişimi'},
     { id: '3', label: 'Arızayı Tanımlayamıyorum'}
 ];
-
-
-Ekran Değişimi
-Batarya Değişimi
-Arızayı Tanımlayamıyorum
