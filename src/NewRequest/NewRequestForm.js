@@ -204,6 +204,12 @@ class NewRequestForm extends Component {
                 this.saveDefect_i(response);
 
             }).catch(error => {
+            this.setState(
+                {
+                    iconLoading :false
+                }
+            );
+
             notification.error({
                 message: 'teknikklinik.com',
                 description: error.message || 'Birşeyler yanlış gitti.!'
