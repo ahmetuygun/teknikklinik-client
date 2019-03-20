@@ -32,7 +32,6 @@ class Summary extends Component {
                             İletişim Detayları
                         </Header>
                         <Segment attached>
-
                             <Grid container columns={4} relaxed stackable>
                                 <Grid.Column>
                                     <TextField

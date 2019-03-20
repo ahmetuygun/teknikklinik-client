@@ -92,12 +92,12 @@
  
 /* small mobile :320px. */
 @media (max-width: 767px) {
-.container {width:300px}
+.container {}
  .header-text p {
   padding: 0;
 }
  .header-text h2 {
-  font-size: 17px;
+  font-size: 30px;
 }
 .header-text h3 {
   color: #ffffff;
@@ -108,9 +108,19 @@
   text-transform: uppercase;
   line-height: 38px;
 }
+.header-text.text-center {
+    position: relative;
+    z-index: 1;
+    margin-bottom: 200px;
+  }
 .default-btn.btn-active {
   margin-bottom: 28px;
+  margin-top: 10px;
+  width: 100%;
 }
+ .default-btn{
+    margin: 0px;
+  }
 .logo h2 {
   margin:  10px 0px;
 } 

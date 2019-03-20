@@ -80,7 +80,7 @@ function ProfileDropdownMenu(props) {
             </Menu.Item>
             <Menu.Divider/>
             <Menu.Item key="profile" className="dropdown-item">
-                <Link to={`/users/${props.currentUser.username}`}>Profilim</Link>
+                <Link to={`/users/${props.currentUser.email}`}>Profilim</Link>
             </Menu.Item>
 
             <Menu.Item key="logout" className="dropdown-item">

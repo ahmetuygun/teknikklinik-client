@@ -111,6 +111,29 @@ export function getCurrentUser() {
     });
 }
 
+export function getUserInfo() {
+    if(!localStorage.getItem(ACCESS_TOKEN)) {
+        return Promise.reject("No access token set.");
+    }
+
+    return request({
+        url: API_BASE_URL + "/getUserInfo",
+        method: 'GET'
+    });
+}
+
+
+export function getDefectInfo() {
+    if(!localStorage.getItem(ACCESS_TOKEN)) {
+        return Promise.reject("No access token set.");
+    }
+    return request({
+        url: API_BASE_URL + "/getDefectInfo",
+        method: 'GET'
+    });
+}
+
+
 export function getUserProfile(username) {
     return request({
         url: API_BASE_URL + "/users/" + username,

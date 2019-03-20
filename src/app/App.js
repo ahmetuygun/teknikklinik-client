@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 
-import {Route, Switch, withRouter} from 'react-router-dom';
+import {Link, Route, Switch, withRouter} from 'react-router-dom';
 
 import {getCurrentUser} from '../util/APIUtils';
 import {ACCESS_TOKEN} from '../constants';
@@ -20,6 +20,7 @@ import PrivateRoute from '../common/PrivateRoute';
 import HomePageForm from '../HomePage/HomePageForm'
 
 import {Layout, notification} from 'antd';
+import {Menu} from "antd/lib/menu";
 
 const {Content} = Layout;
 
@@ -53,6 +54,8 @@ class App extends Component {
                     isAuthenticated: true,
                     isLoading: false
                 });
+                this.props.history.push("/users/" + this.state.currentUser.email);
+
             }).catch(error => {
             this.setState({
                 isLoading: false
@@ -86,7 +89,7 @@ class App extends Component {
             description: "Başarıla giriş yaptınız.",
         });
         this.loadCurrentUser();
-        this.props.history.push("/");
+
     }
 
     render() {
@@ -113,12 +116,11 @@ class App extends Component {
                             <Route exact path='/approve/' component={Final}></Route>
 
                             <Route path="/signup" component={Signup}></Route>
-                            <Route path="/users/:username"
+                            <Route path="/users/:email"
                                    render={(props) => <Profile isAuthenticated={this.state.isAuthenticated}
                                                                currentUser={this.state.currentUser} {...props}  />}>
                             </Route>
-                            <PrivateRoute authenticated={this.state.isAuthenticated} path="/poll/new"
-                                          component={NewPoll} handleLogout={this.handleLogout}></PrivateRoute>
+
                             <Route component={NotFound}></Route>
 
                             <Route path="/signup" component={Signup}></Route>

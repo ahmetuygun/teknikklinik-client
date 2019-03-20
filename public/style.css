@@ -895,15 +895,14 @@ Margin top
   box-shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.2);	  
 }
 .default-btn:hover{
-	background:#16A085;
+	background:#2196f3;
 	color:#fff;
 } 
 .default-btn.btn-active{	
-	background:#16A085;
+	background:#2196f3;
 	color:#fff;
 } 
 .default-btn.btn-active:hover{
-	background:transparent;
 	color:#fff;
 }
 
