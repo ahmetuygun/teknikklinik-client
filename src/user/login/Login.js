@@ -82,7 +82,6 @@ class LoginForm extends Component {
                 </FormItem>
                 <FormItem>
                     <Button type="primary" htmlType="submit" size="large" className="login-form-button">Giriş</Button>
-                    veya <Link to="/signup">Şimdi kaydol!</Link>
                 </FormItem>
             </Form>
         );
