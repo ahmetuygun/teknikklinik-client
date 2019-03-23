@@ -484,6 +484,9 @@
                 console.dir(currentLocation);
 
                 var phone_id = document.getElementById("phoneId").value;
+				if(phone_id==0)
+                    return;
+
 				var url = currentLocation.origin+'/newRequestForm/' +phone_id;
 
                 var ua        = navigator.userAgent.toLowerCase(),
