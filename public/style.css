@@ -724,12 +724,12 @@ Margin top
 /*-- Navbar Toggle --*/
 
 .logo a h3{
-    color: #fff;
-    font-size: 24px;
+    color: #ffff;
+    font-size: 35px;
     font-weight: 700;
     margin-bottom: 0;
-    text-transform: uppercase;
-	padding:10px 0;
+    /* text-transform: uppercase; */
+    padding: 10px 0;
 }
 .logo a {
     height: inherit;
@@ -798,13 +798,14 @@ Margin top
 .navbar-toggle {
     width: 40px;
     height: 40px;
-    background-color: #fff;
+    background-color: white;
     color: #333;
     border-radius: 0;
     padding: 0;
     text-align: center;
     border: none;
-    margin: 0;
+    /* margin: 0; */
+    margin-top: 15px !important;
 }
 .navbar-toggle i {
     display: block;
@@ -828,7 +829,7 @@ Margin top
 	color:#333;
 }
 #main-menu.stick .logo a h3{
-	color:#333;
+    color: #2196f3;
 }
 /*----------------------
 4.Slider-area
@@ -2165,4 +2166,9 @@ div#preloader {
     z-index: 999999;
 }
 
+
+.imageLogo{
+
+    background-color: #1a69a4;
+}
 
