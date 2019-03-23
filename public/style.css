@@ -966,7 +966,7 @@ Margin top
     margin-bottom: 20px;
 }
 .about-icon i {
-    color: #16A085;
+    color: #2196f3;
     font-size: 40px;
 }
 .about-text h3{
@@ -976,8 +976,7 @@ Margin top
   margin: 15px 0 0;
 }
 .single-about:hover .about-text h3{
-	color:#16A085;
-}
+    color: #2196f3;}
 /*----------------------
 6.video-area
 ------------------------*/
